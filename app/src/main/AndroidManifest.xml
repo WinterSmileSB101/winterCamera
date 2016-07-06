@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="winter.zxb.smilesb101.winterCamer">
+
+    <uses-permission android:name="android.permission.CAMERA"/>//摄像头权限
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera" />//摄像头Camera Feature
+    <uses-feature android:name="android.hardware.camera.autofocus" />//自动对焦
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"></uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS" />
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/my_680"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="us.pinguo.edit.sdk.PGEditActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <service
+            android:name="us.pinguo.bigdata.BDUpService"
+            android:process=":bdupload">
+        </service>
+
+        <receiver android:name="us.pinguo.bigdata.BDAlarmReceiver">
+            <intent-filter>
+                <action android:name="bd_alarm"/>
+            </intent-filter>
+        </receiver>
+        <meta-data
+            android:name="EDIT_SDK_KEY"
+            android:value="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"/>
+
+        <meta-data
+            android:name="BD_APP_ID"
+            android:value="ea8d04692735bc1f"/>
+
+        <meta-data
+            android:name="BD_APP_SECRET"
+            android:value="vCGG9QZ94tcGxTjangCc_b_VuXwmfGd2"/>
+
+    </application>
+
+</manifest>
